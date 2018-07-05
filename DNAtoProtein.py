@@ -33,14 +33,49 @@ def inputcheck(DNA_seq):
 
 # If input is only ATGC, execute rest of script
 if inputcheck(DNA_seq) == True:
+    
+    def StartCheck(DNA_seq):
+        NumStart = 0
+        for i in range(0, len(DNA_seq), 3):
+            if DNA_seq[i:i+3] == "ATG":
+                NumStart = NumStart + 1
+        if NumStart == 1:
+            print("\n")
+            print("There is " + style.BOLD +  str(NumStart) + " start codon " +  style.END + "in this sequence.")
+        elif NumStart > 1:
+            print("\n")
+            print("There are " + style.BOLD + str(NumStart) + " start codons " + style.END + "in this sequence.")
+        return NumStart
+            
+    if StartCheck(DNA_seq) == False:
+        print("\n")
+        print("There is" + style.BOLD + "no start codon" + style.END + "in this sequence.")
+        
+    Stop_Codons = ["TAA", "TAG", "TGA"]
+
+
+    def StopCheck(DNA_seq):
+        NumStop = 0
+        for i in range(0, len(DNA_seq), 3):
+            if DNA_seq[i:i+3] in Stop_Codons:
+                NumStop = NumStop + 1
+        if NumStop == 1:
+            print("\n")
+            print("There is " + style.BOLD + str(NumStop) + " stop codon " + style.END + "in this sequence.")
+        elif NumStop > 0:
+            print("\n")
+            print("There are " + style.BOLD + str(NumStop) + " stop codons " + style.END + "in this sequence.")
+        return NumStop
+
+    if StopCheck(DNA_seq) == False:
+            print("\n")
+            print("There is" + style.BOLD + "no stop codon " + style.END + "in this sequence.")        
 
     # To separate codons into a list by iterating through the length of the list
     DNA_seq = [DNA_seq[i:i+3] for i in range(0, len(DNA_seq), 3)]
 
     # Verify that list creation worked
     #print(DNA_seq)
-    
-    # * means STOP codon
 
     # Codon/amino acid dictionary
     codon_to_protein = {"TTT": "F", "TTC": "F", 
@@ -71,9 +106,9 @@ if inputcheck(DNA_seq) == True:
     print("\n")
     print(style.BOLD + "Amino Acid Sequence: " + style.END)
     print("\n")
-    print("Please note that asterisks (*) indicate a stop codon." + style.END)
-    print("\n")
     print(protein_seq)
+    print("\n")
+    print("Please note that asterisks (*) indicate a stop codon." + style.END)
 
     from collections import Counter
 
