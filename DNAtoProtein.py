@@ -33,14 +33,14 @@ def inputcheck(DNA_seq):
 
 # If input is only ATGC, execute rest of script
 if inputcheck(DNA_seq) == True:
-    
+
     # To separate codons into a list by iterating through the length of the list
     DNA_seq = [DNA_seq[i:i+3] for i in range(0, len(DNA_seq), 3)]
 
     # Verify that list creation worked
     #print(DNA_seq)
     
-    # * means STOP codon.
+    # * means STOP codon
 
     # Codon/amino acid dictionary
     codon_to_protein = {"TTT": "F", "TTC": "F", 
@@ -69,7 +69,7 @@ if inputcheck(DNA_seq) == True:
     protein_seq = "".join(protein_seq)
 
     print("\n")
-    print(style.BOLD + "Amino Acid Sequence:" + style.END)
+    print(style.BOLD + "Amino Acid Sequence: " + style.END)
     print("\n")
     print("Please note that asterisks (*) indicate a stop codon." + style.END)
     print("\n")
@@ -95,3 +95,21 @@ if inputcheck(DNA_seq) == True:
             print(x[0], x[1])
 
     printfreq(sorted_AA_freq)
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+    
+    AA = list(zip(*sorted_AA_freq))[0]
+    freq = list(zip(*sorted_AA_freq))[1]
+    x_pos = np.arange(len(AA))
+    
+    # Add trendline
+    #slope, intercept = np.polyfit(x_pos, freq, 1)
+    #trendline = intercept + (slope * x_pos)
+    
+    #plt.plot(x_pos, trendline, color='red', linestyle='--')    
+    plt.bar(x_pos, freq,align='center')
+    plt.xticks(x_pos, AA) 
+    plt.xlabel("Amino Acid")
+    plt.ylabel('Number of Occurrences')
+    plt.show()
