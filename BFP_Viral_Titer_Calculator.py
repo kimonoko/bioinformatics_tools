@@ -1,3 +1,10 @@
+# Prompt user for necessary values. 
+# Determine viral titer based on virally BFP expression using the following equation:
+# Formula for virus titer calculation: titer = {(F × Cn) /V} × DF
+# F: The frequency of GFP-positive cells determined by flow cytometry; Cn: The total number of target cells infected.
+# V: The volume of the inoculum.
+# DF: The virus dilution factor.
+
 class style:
    BOLD = '\033[1m'
    END = '\033[0m'
