@@ -1,3 +1,5 @@
+# Calculate GC content of sequence in sliding window given input DNA sequence. Window can be adjusted in the code.
+
 def gc_content(DNA_seq):
     # Define bold style
     class style:
