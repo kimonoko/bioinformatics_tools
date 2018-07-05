@@ -1,4 +1,4 @@
-# Count the number of bases in a given sequence.
+# Count the number of bases in a given DNA sequence.
 
 def count_bases(seq):
     seq = seq.upper()
