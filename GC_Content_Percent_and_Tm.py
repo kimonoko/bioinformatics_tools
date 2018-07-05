@@ -1,3 +1,5 @@
+# Calcuate GC percent and prompt user for Tm calculation if applicable.
+
 # Define bold style
 class style:
    BOLD = '\033[1m'
