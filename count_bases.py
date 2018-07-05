@@ -24,4 +24,4 @@ def count_bases(seq):
     print('There are ' + str(adenine) + ' adenines, ' + str(guanine) + ' guanines, ' + str(cytosine) + ' cytosines, ' + str(thymine) + ' thymines, and ' + str(unknown) + ' unknown nucelotides in this sequence.')
 
 # Example input sequence
-count_bases('ATGCCGCGCTGTGCRCGAGACGAC')
+# count_bases('ATGCCGCGCTGTGCRCGAGACGAC')
