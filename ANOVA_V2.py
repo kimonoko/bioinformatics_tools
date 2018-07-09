@@ -128,4 +128,4 @@ print("ω² is " + str("{:.1%}".format(Omega_Squared)))
 p = stats.f.sf(F_Stat, DFB, DFE)
 print("The p-value is " + str(p))
 
-stats.f_oneway(Set1, Set2, Set3
+stats.f_oneway(Set1, Set2, Set3)
