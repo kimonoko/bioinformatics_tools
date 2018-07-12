@@ -1,6 +1,6 @@
 # Calculate Spearman's rank correlation coefficient
 
-import scipy
+import scipy.stats
 import numpy as np
 
 a = np.random.randn(100)
