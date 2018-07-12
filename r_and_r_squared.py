@@ -1,6 +1,6 @@
 # Correlation Coefficient (r), also known as the Pearson Product-moment Coefficient, and the Coefficient of Determination (r-squared)
 
-from scipy import stats
+import scipy.stats
 import numpy as np
 
 # Replace the lists below with your own data.
