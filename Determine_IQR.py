@@ -5,9 +5,7 @@ class style:
 #Determine IQR
 titers = [6.47E+05, 2.06E+06, 5.10E+06, 5.10E+06, 2.96E+06]
 
-import pandas as pd
 import numpy as np
-from scipy.stats import iqr
 from decimal import *
 x = np.array(titers)
 x
