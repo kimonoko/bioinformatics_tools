@@ -1,14 +1,15 @@
+import numpy as np
+from decimal import *
+from scipy.stats import iqr
+
 class style:
    BOLD = '\033[1m'
    END = '\033[0m'
 
-#Determine IQR
+# Determine IQR
 titers = [6.47E+05, 2.06E+06, 5.10E+06, 5.10E+06, 2.96E+06]
-
-import numpy as np
-from scipy.stats import iqr
-from decimal import *
 x = np.array(titers)
+
 Interquartile_Range = iqr(x)
 Sci_Interquartile_Range = "%.2E" % Decimal(Interquartile_Range)
 
