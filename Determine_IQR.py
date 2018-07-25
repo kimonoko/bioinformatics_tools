@@ -6,9 +6,9 @@ class style:
 titers = [6.47E+05, 2.06E+06, 5.10E+06, 5.10E+06, 2.96E+06]
 
 import numpy as np
+from scipy.stats import iqr
 from decimal import *
 x = np.array(titers)
-x
 Interquartile_Range = iqr(x)
 Sci_Interquartile_Range = "%.2E" % Decimal(Interquartile_Range)
 
