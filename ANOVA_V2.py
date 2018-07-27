@@ -51,7 +51,6 @@ Set3_SSE = sum(Set3_SSE_List)
 # Sum of Squares of Error
 
 SSE = Set1_SSE + Set2_SSE + Set3_SSE
-print("SSE is " + str(SSE))
 
 # Sum of Squares Between Treatments
 
@@ -62,7 +61,6 @@ SSB3 = (len(Set3) * ((Mean_Set3 - Mean_All) ** 2))
 # SSB5 = (len(Set5) * ((Mean_Set5 - Mean_All) ** 2))
 
 SSB = SSB1 + SSB2 + SSB3
-print("SSB is " + str(SSB))
 
 # Sum of Squares Total
 
@@ -71,61 +69,57 @@ SST = SSB + SSE
 # Degrees of Freedom Between Treatment
 
 DFB = Number_Of_Sets - 1
-print("DFB is " + str(DFB))
 
 # Degrees of Freedom of Error
 
 Number_Of_Values = len(Set1) + len(Set2) + len(Set3)
-print("The total number of values is", str(Number_Of_Values))
+print("The total number of values is", str(Number_Of_Values) + ".")
 
 DFE = Number_Of_Values - Number_Of_Sets
-print("DFE is " + str(DFE))
 
 # Degrees of Freedom Total
 
 DFT = Number_Of_Values - 1
-print("DFT is " + str(DFT))
 
 # Mean Square Between Treatments
 
 MSB = SSB / DFB
-print("MSB is " + str(MSB))
 
 # Mean Square for Error
 
 MSE = SSE / DFE
-print("MSE is " + str(MSE))
 
 # Determine F Statistic
 
 F_Stat = MSB / MSE
-print("F_Stat is " + str(F_Stat))
+print("The F statistic is " + str(F_Stat) + ".")
 
 # Eta Squared or η², commonly used  for effect size
 
 Eta_Squared_Set1 = SSB1 / SST
-print("Eta_Squared_Set1 is " + str("{:.1%}".format(Eta_Squared_Set1)))
 Eta_Squared_Set2 = SSB2 / SST
-print("Eta_Squared_Set2 is " + str("{:.1%}".format(Eta_Squared_Set2)))
 Eta_Squared_Set3 = SSB3 / SST
-print("Eta_Squared_Set3 is " + str("{:.1%}".format(Eta_Squared_Set3)))
 # Eta_Squared_Set4 = SSB4 / SST
-# print("Eta_Squared_Set4 is " + str("{:.1%}".format(Eta_Squared_Set4)))
 
 Eta_Squared_Error = SSE / SST
-print("Eta_Squared_Error is " + str("{:.1%}".format(Eta_Squared_Error)))
+print("The η² error is " + str("{:.1%}".format(Eta_Squared_Error)) + ".")
 
 Eta_Squared = SSB / SST
-print("η² is " + str("{:.1%}".format(Eta_Squared)))
+print("η² is " + str("{:.1%}".format(Eta_Squared)) + ".")
 
 # Eta-squared is somewhat biased (based purely on sums of squares from the sample). Less biased effect size measure is Omega squared:
 
 Omega_Squared = (SSB - (DFB * MSE)) / (SST + MSE)
-print("ω² is " + str("{:.1%}".format(Omega_Squared)))
+print("ω² is " + str("{:.1%}".format(Omega_Squared)) + ".")
+
+# Cohen's F can be used to describe effect size for multiple datasets
+
+Cohen_F = np.sqrt(Eta_Squared/(1 - Eta_Squared))
+print("Cohen's F for this data is " + str("{:.1%}".format(Cohen_F)) + ".")
 
 # p-value Calculation
 
 p = stats.f.sf(F_Stat, DFB, DFE)
-print("The p-value is " + str(p))
+print("The p-value is " + str(p) + ".")
 
 stats.f_oneway(Set1, Set2, Set3)
