@@ -88,7 +88,7 @@ Eta_Squared_Set3 = SSB3 / SST
 Eta_Squared_Set4 = SSB4 / SST
 
 Eta_Squared_Error = SSE / SST
-print("Eta_Squared_Error is " + str("{:.1%}".format(Eta_Squared_Error)) + ".")
+print("The η² error is " + str("{:.1%}".format(Eta_Squared_Error)) + ".")
 
 Eta_Squared = SSB / SST
 print("η² is " + str("{:.1%}".format(Eta_Squared)) + ".")
