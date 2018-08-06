@@ -12,10 +12,11 @@ Titer = float(input(style.BOLD + "Please input the titer of the library. " + sty
 
 print("\n")
 PartPerCond = Num_Guides * Rep
-CellPerPlate = (PartPerCond / MOI) / PlatesPerCond
+CellPerCond = (PartPerCond / MOI)
+CellPerPlate = CellPerCond / PlatesPerCond
 
 PartPerPlate = CellPerPlate * MOI
 VolPerPlate = (PartPerPlate / Titer) * 1000
 
-print("You will need", style.BOLD + str('%.2E' % Decimal(PartPerCond)), "viral particles per condition" + style.END, "and", style.BOLD +  str('%.2E' % Decimal(CellPerPlate)), "cells per plate" + style.END, "to maintain", str(Rep) + "X representation.")
+print("You will need", style.BOLD + str('%.2E' % Decimal(PartPerCond)), "viral particles per condition" + style.END, "and", style.BOLD +  str('%.2E' % Decimal(CellPerPlate)), "cells per plate (" + str('%.2E' % Decimal(CellPerCond)) + " cells per condition)" + style.END, "to maintain", str(Rep) + "X representation.\n")
 print("To achieve", style.BOLD + str('%.2E' % Decimal(PartPerPlate)), "viral particles per plate" + style.END, "for an MOI of", str(MOI) + ", you will need to use", style.BOLD + str("%.2f" % VolPerPlate), "μL of virus." + style.END)
