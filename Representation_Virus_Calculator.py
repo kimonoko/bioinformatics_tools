@@ -12,12 +12,13 @@ Titer = float(input(style.BOLD + "Please input the titer of the library. " + sty
 
 print("\n")
 PartPerCond = Num_Guides * Rep
-CellPerCond = (PartPerCond / MOI)
+CellTrans = (PartPerCond / MOI)
+CellPerCond = CellTrans * MOI
 CellPerPlate = CellPerCond / PlatesPerCond
 
-PartPerPlate = CellPerPlate * MOI
-VolPerPlate = (PartPerPlate / Titer) * 1000
+PartPerPlate = CellPerCond * MOI
+VolPerCond = (PartPerCond / Titer) * 1000
 
-print("You will need", style.BOLD + str('%.2E' % Decimal(PartPerCond)), "viral particles per condition" + style.END, "and", style.BOLD +  str('%.2E' % Decimal(CellPerPlate)), "cells per plate (" + str('%.2E' % Decimal(CellPerCond)) + " cells per condition)" + style.END, "to maintain", str(Rep) + "X representation.\n")
-print("To achieve", style.BOLD + str('%.2E' % Decimal(PartPerPlate)), "viral particles per plate" + style.END, "for an MOI of", str(MOI) + ", you will need to use", style.BOLD + str("%.2f" % VolPerPlate), "μL of virus.\n" + style.END)
+print("You will need to transduce", style.BOLD + str('%.2E' % Decimal(PartPerCond)), "viral particles (" + str("%.2f" % VolPerCond), "μL of virus) " + style.END + "into", style.BOLD + str('%.2E' % Decimal(CellTrans)) + " cells" + style.END, "to achieve", str(Rep) + "X representation at an", style.BOLD + "MOI of", str(MOI) + style.END + ".\n")
+print("After infection, for each condition you will need to maintain at least", style.BOLD + str('%.2E' % Decimal(CellPerCond)), "cells per condition " + style.END + "or", style.BOLD + str("%.2E" % (CellPerPlate)), "cells per plate." + style.END + "\n")
 print("Calculated using the MOI/Representation Calculator.")
