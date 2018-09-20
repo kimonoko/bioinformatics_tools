@@ -16,4 +16,4 @@ CellPerCond = (PartPerCond / MOI)
 VolPerCond = (PartPerCond / Titer) * 1000
 
 print("To achieve an MOI of " + style.BOLD + str(MOI) + style.END + " and " + style.BOLD +  str(Rep) + "X representation, " + style.END + "you will need to infect " + style.BOLD + str('%.2E' % Decimal(CellPerCond)) + " cells " + style.END + "with " + style.BOLD + str('%.2E' % Decimal(PartPerCond)) + " viral particles per condition." + style.END + "\n")
-print("Based on the titer of this library, this means you will need to use " + style.BOLD + str("%.2f" % VolPerCond), "μL of virus." + style.END)
+print("Based on the titer of this library, you will need to use " + style.BOLD + str("%.2f" % VolPerCond), "μL of virus." + style.END)
